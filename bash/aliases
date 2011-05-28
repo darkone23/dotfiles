@@ -1,0 +1,22 @@
+#git
+alias gb='git branch'
+alias gba='git branch -a'
+alias gc='git commit -v'
+alias gca='git commit -v -a'
+alias gd='git diff | vim'
+alias gl='git pull'
+alias gp='git push'
+alias gst='git status'
+
+#mercurial
+alias h='hg status'
+alias hc='hg commit -m'
+alias hu='hg update'
+
+#system
+alias ls='ls'
+alias l='ls -lah'
+alias ..='cd ..'
+alias c='clear'
+
+alias v='vim'
