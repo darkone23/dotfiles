@@ -8,6 +8,7 @@ au BufRead,BufNewFile *.less set filetype=less
 autocmd BufWritePost,FileWritePost *.less silent !lessc <afile> <afile>:r.css
 let coffee_compile_on_save = 1
 let g:ackprg="ack-grep -H --nocolor --nogroup --column"
+let g:yankring_history_dir = '~/.vim'
 
 set nocompatible
 
