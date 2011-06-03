@@ -14,9 +14,9 @@ set nocompatible
 
 set modelines=0
 
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
 set expandtab
 
 set colorcolumn=80
@@ -38,21 +38,27 @@ set relativenumber
 set undofile
 
 let mapleader = ","
+" python/ruby style regex, (no escaping)
 nnoremap / /\v
 vnoremap / /\v
 set ignorecase
 set smartcase
 set gdefault
+
+" highlight searches as they are typed
 set incsearch
 set showmatch
 set hlsearch
+" clear out selected text
 nnoremap <leader><space> :noh<cr>
+" tab scroll through matches
 nnoremap <tab> %
 vnoremap <tab> %
 
 set wrap
 set formatoptions=qrn1
 
+" get rid of arrow keys, pesky pesky arrow keys
 nnoremap <up> <nop>
 nnoremap <down> <nop>
 nnoremap <left> <nop>
@@ -61,11 +67,21 @@ inoremap <down> <nop>
 inoremap <left> <nop>
 inoremap <right> <nop>
 inoremap <up> <nop>
+
+" move up and down by *screen lines* rather than file lines
 nnoremap j gj
 nnoremap k gk
+
+" fat finger remap, make sure F1 isn't accidentally pressed
 inoremap <F1> <ESC>
 nnoremap <F1> <ESC>
 vnoremap <F1> <ESC>
+
+" reselect text after indentation
+vnoremap < <gv
+vnoremap > >gv
+
+" shift sucks, change : to ;
 nnoremap ; :
 
 au FocusLost * :wa
