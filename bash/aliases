@@ -14,8 +14,8 @@ alias hc='hg commit -m'
 alias hu='hg update'
 
 #system
-alias ls='ls'
-alias l='ls -lah'
+alias ls='ls --color'
+alias l='ls -lah --color'
 alias ..='cd ..'
 alias c='clear'
 
