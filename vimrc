@@ -1,12 +1,12 @@
 filetype off
 call pathogen#runtime_append_all_bundles()
+call pathogen#helptags()
 filetype plugin indent on
 syntax on
 set ofu=syntaxcomplete#Complete
 
 au BufRead,BufNewFile *.less set filetype=less
 autocmd BufWritePost,FileWritePost *.less silent !lessc <afile> <afile>:r.css
-let coffee_compile_on_save = 1
 let g:ackprg="ack-grep -H --nocolor --nogroup --column"
 let g:yankring_history_dir = '~/.vim'
 
@@ -14,9 +14,9 @@ set nocompatible
 
 set modelines=0
 
-set tabstop=2
-set shiftwidth=2
-set softtabstop=2
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
 set expandtab
 
 set colorcolumn=80
