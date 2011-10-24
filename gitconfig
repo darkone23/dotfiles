@@ -1,7 +1,0 @@
-[user]
-	name = Thomas Omans
-	email = thomas.omans@gmail.com
-[alias]
-	co = checkout
-[apply]
-	whitespace = nowarn

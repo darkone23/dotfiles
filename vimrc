@@ -99,4 +99,4 @@ nnoremap <C-l> <C-w>l
 
 set t_Co=256
 set background=dark
-colorscheme jellybeans
+colorscheme Tomorrow-Night
