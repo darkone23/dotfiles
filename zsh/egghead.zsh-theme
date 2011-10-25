@@ -16,7 +16,7 @@ ZSH_THEME_GIT_PROMPT_UNTRACKED="%{$fg[yellow]%}?"
 ZSH_THEME_GIT_PROMPT_CLEAN=""
 
 function virtualenv_info() {
-    [ $VIRTUAL_ENV ] && echo %{$fg[red]%}$'['`basename $VIRTUAL_ENV`'] '
+    [ $VIRTUAL_ENV ] && echo %{$fg[yellow]%}$'['`basename $VIRTUAL_ENV`'] '
 }
 
 # Git sometimes goes into a detached head state. git_prompt_info doesn't
