@@ -55,7 +55,7 @@ nnoremap <leader><space> :noh<cr>
 nnoremap <tab> %
 vnoremap <tab> %
 
-set wrap
+set nowrap
 set formatoptions=qrn1
 
 " get rid of arrow keys, pesky pesky arrow keys

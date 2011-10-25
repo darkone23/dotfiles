@@ -15,6 +15,10 @@ ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[red]%}!"
 ZSH_THEME_GIT_PROMPT_UNTRACKED="%{$fg[yellow]%}?"
 ZSH_THEME_GIT_PROMPT_CLEAN=""
 
+function virtualenv_info() {
+    [ $VIRTUAL_ENV ] && echo %{$fg[red]%}$'['`basename $VIRTUAL_ENV`'] '
+}
+
 # Determine the time since last commit. If branch is clean,
 # use a neutral color, otherwise colors will vary according to time.
 function git_time_since_commit() {
@@ -62,5 +66,5 @@ function git_time_since_commit() {
 }
 
 PROMPT='
-%{$fg[green]%}%n@%m%{$reset_color%}: %{$fg[magenta]%}${PWD/#$HOME/~}%{$reset_color%}$(git_prompt_info) ($(git_time_since_commit) ago)
+$(virtualenv_info)%{$fg[green]%}%n@%m%{$reset_color%}: %{$fg[magenta]%}${PWD/#$HOME/~}%{$reset_color%}$(git_prompt_info) ($(git_time_since_commit) ago)
 %{$fg_bold[red]%}–⇒ %{$reset_color%}'
