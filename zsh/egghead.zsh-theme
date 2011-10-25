@@ -19,6 +19,19 @@ function virtualenv_info() {
     [ $VIRTUAL_ENV ] && echo %{$fg[red]%}$'['`basename $VIRTUAL_ENV`'] '
 }
 
+# Git sometimes goes into a detached head state. git_prompt_info doesn't
+# return anything in this case. So wrap it in another function and check
+# for an empty string.
+function check_git_prompt_info() {
+    if git rev-parse --git-dir > /dev/null 2>&1; then
+        if [[ -z $(git_prompt_info) ]]; then
+            echo "%{$fg[magenta]%}detached-head%{$reset_color%})"
+        else
+            echo ""
+        fi
+    fi
+}
+
 # Determine the time since last commit. If branch is clean,
 # use a neutral color, otherwise colors will vary according to time.
 function git_time_since_commit() {
@@ -52,11 +65,11 @@ function git_time_since_commit() {
             fi
 
             if [ "$HOURS" -gt 24 ]; then
-                echo "$COLOR${DAYS}d${SUB_HOURS}h${SUB_MINUTES}m%{$reset_color%}"
+                echo "($COLOR${DAYS}d${SUB_HOURS}h${SUB_MINUTES}m%{$reset_color%} ago)"
             elif [ "$MINUTES" -gt 60 ]; then
-                echo "$COLOR${HOURS}h${SUB_MINUTES}m%{$reset_color%}"
+                echo "($COLOR${HOURS}h${SUB_MINUTES}m%{$reset_color%} ago)"
             else
-                echo "$COLOR${MINUTES}m%{$reset_color%}"
+                echo "($COLOR${MINUTES}m%{$reset_color%} ago)"
             fi
         else
             COLOR="$ZSH_THEME_GIT_TIME_SINCE_COMMIT_NEUTRAL"
@@ -66,5 +79,5 @@ function git_time_since_commit() {
 }
 
 PROMPT='
-$(virtualenv_info)%{$fg[green]%}%n@%m%{$reset_color%}: %{$fg[magenta]%}${PWD/#$HOME/~}%{$reset_color%}$(git_prompt_info) ($(git_time_since_commit) ago)
+$(virtualenv_info)%{$fg[green]%}%n@%m%{$reset_color%}: %{$fg[magenta]%}${PWD/#$HOME/~}%{$reset_color%}$(git_prompt_info) $(git_time_since_commit)$(check_git_prompt_info)
 %{$fg_bold[red]%}–⇒ %{$reset_color%}'
