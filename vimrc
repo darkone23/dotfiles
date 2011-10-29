@@ -55,7 +55,7 @@ nnoremap <leader><space> :noh<cr>
 nnoremap <tab> %
 vnoremap <tab> %
 
-set nowrap
+set wrap
 set formatoptions=qrn1
 
 " get rid of arrow keys, pesky pesky arrow keys
@@ -78,8 +78,8 @@ nnoremap <F1> <ESC>
 vnoremap <F1> <ESC>
 
 " reselect text after indentation
-vnoremap < <gv
-vnoremap > >gv
+" vnoremap < <gv
+" vnoremap > >gv
 
 " shift sucks, change : to ;
 nnoremap ; :
