@@ -9,6 +9,8 @@ set ofu=syntaxcomplete#Complete
 au BufRead,BufNewfile *.clj set filetype=clojure
 au BufRead,BufNewfile *.clj RainbowParenthesesToggle
 
+au BufRead,BufNewfile *.scm RainbowParenthesesToggle
+
 " Use the less plugin, use the less compiler on filewrite
 au BufRead,BufNewFile *.less set filetype=less
 autocmd BufWritePost,FileWritePost *.less silent !lessc <afile> <afile>:r.css
