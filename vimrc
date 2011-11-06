@@ -8,7 +8,9 @@ set ofu=syntaxcomplete#Complete
 au BufRead,BufNewFile *.less set filetype=less
 autocmd BufWritePost,FileWritePost *.less silent !lessc <afile> <afile>:r.css
 let g:ackprg="ack-grep -H --nocolor --nogroup --column"
-let g:yankring_history_dir = '~/.vim'
+let g:yankring_history_dir='~/.vim'
+
+let g:easytags_updatetime_min=4000
 
 set nocompatible
 
@@ -18,6 +20,8 @@ set tabstop=4
 set shiftwidth=4
 set softtabstop=4
 set expandtab
+
+set tags=~/.vimtags
 
 set colorcolumn=80
 set encoding=utf-8
@@ -49,11 +53,9 @@ set gdefault
 set incsearch
 set showmatch
 set hlsearch
+
 " clear out selected text
 nnoremap <leader><space> :noh<cr>
-" tab scroll through matches
-nnoremap <tab> %
-vnoremap <tab> %
 
 set wrap
 set formatoptions=qrn1
@@ -90,12 +92,16 @@ nnoremap <leader>ft Vatzf
 nnoremap <leader>S ?{<CR>jV/^\s*\}?$<CR>k:sort<CR>:noh<CR>
 nnoremap <leader>v V']
 nnoremap <leader>n :NERDTree<CR>
-inoremap jj <ESC>
+nnoremap <leader>b :FufBuffer<CR>
+nnoremap <leader>t :FufTaggedFile<CR>
+nnoremap <leader>f :FufFile<CR>
 nnoremap <leader>w <C-w>v<C-w>1
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
+
+inoremap jj <ESC>
 
 set t_Co=256
 set background=dark
