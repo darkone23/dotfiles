@@ -5,8 +5,16 @@ filetype plugin indent on
 syntax on
 set ofu=syntaxcomplete#Complete
 
+" Load rainbow parens for clojure and implement some syntax highlighting
+au BufRead,BufNewfile *.clj set filetype=clojure
+au BufRead,BufNewfile *.clj RainbowParenthesesToggle
+
+au BufRead,BufNewfile *.scm RainbowParenthesesToggle
+
+" Use the less plugin, use the less compiler on filewrite
 au BufRead,BufNewFile *.less set filetype=less
 autocmd BufWritePost,FileWritePost *.less silent !lessc <afile> <afile>:r.css
+
 let g:ackprg="ack-grep -H --nocolor --nogroup --column"
 let g:yankring_history_dir='~/.vim'
 
@@ -88,6 +96,7 @@ nnoremap ; :
 
 au FocusLost * :wa
 
+nnoremap <leader>r :RainbowParenthesesToggle<CR>
 nnoremap <leader>ft Vatzf
 nnoremap <leader>S ?{<CR>jV/^\s*\}?$<CR>k:sort<CR>:noh<CR>
 nnoremap <leader>v V']
