@@ -100,10 +100,6 @@ nnoremap <leader>r :RainbowParenthesesToggle<CR>
 nnoremap <leader>ft Vatzf
 nnoremap <leader>S ?{<CR>jV/^\s*\}?$<CR>k:sort<CR>:noh<CR>
 nnoremap <leader>v V']
-nnoremap <leader>n :NERDTree<CR>
-nnoremap <leader>b :FufBuffer<CR>
-nnoremap <leader>t :FufTaggedFile<CR>
-nnoremap <leader>f :FufFile<CR>
 nnoremap <leader>w <C-w>v<C-w>1
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
