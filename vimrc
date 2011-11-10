@@ -97,6 +97,8 @@ nnoremap ; :
 au FocusLost * :wa
 
 nnoremap <leader>r :RainbowParenthesesToggle<CR>
+nnoremap <leader>g :GundoToggle<CR>
+nnoremap <leader>y :YRShow<CR>
 nnoremap <leader>ft Vatzf
 nnoremap <leader>S ?{<CR>jV/^\s*\}?$<CR>k:sort<CR>:noh<CR>
 nnoremap <leader>v V']
