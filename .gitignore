@@ -1,5 +1,5 @@
 *~
 *.tmp
-*.swp
+*.sw*
 .netrwhist
 yankring_history_v2.txt

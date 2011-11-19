@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 if tmux has-session -t 'master'; then
   tmux -2 attach-session -t 'master'
 else

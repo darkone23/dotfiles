@@ -49,6 +49,9 @@ set laststatus=2
 set relativenumber
 set undofile
 
+" Resize splits when the window is resized
+au VimResized * exe "normal! \<c-w>="
+
 let mapleader = ","
 " python/ruby style regex, (no escaping)
 nnoremap / /\v
