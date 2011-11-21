@@ -78,6 +78,5 @@ function git_time_since_commit() {
     fi
 }
 
-PROMPT='
-$(virtualenv_info)%{$fg[green]%}%n@%m%{$reset_color%}: %{$fg[magenta]%}${PWD/#$HOME/~}%{$reset_color%}$(git_prompt_info) $(git_time_since_commit)$(check_git_prompt_info)
-%{$fg_bold[red]%}–⇒ %{$reset_color%}'
+PROMPT='$(virtualenv_info)%{$fg[green]%}%n@%m%{$reset_color%}: %{$fg[magenta]%}${PWD/#$HOME/~}%{$reset_color%}$(git_prompt_info) $(git_time_since_commit)$(check_git_prompt_info)
+%{$fg_bold[red]%}𝀪  %{$reset_color%}'
