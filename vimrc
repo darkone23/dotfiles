@@ -15,6 +15,18 @@ au BufRead,BufNewfile *.scm RainbowParenthesesToggle
 au BufRead,BufNewFile *.less set filetype=less
 autocmd BufWritePost,FileWritePost *.less silent !lessc <afile> <afile>:r.css
 
+" set up control p with ignores and git support
+set runtimepath^=~/.vim/bundle/ctrlp.vim
+set wildignore+=*.so,*.swp,*.zip,*/target/*,#*#
+let g:ctrlp_user_command = { 
+  \ 'types': { 
+      \ 1: ['.git', 'cd %s && git ls-files'], 
+  \  },
+  \ 'fallback': 'find %s -type f'
+\ }
+let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
+let g:ctrlp_map = '<leader>t'
+
 let g:ackprg="ack-grep -H --nocolor --nogroup --column"
 let g:yankring_history_dir='~/.vim'
 
@@ -28,10 +40,14 @@ set tabstop=4
 set shiftwidth=4
 set softtabstop=4
 set expandtab
+autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
+
 
 set tags=~/.vimtags
 
-set colorcolumn=80
+" enable for red bar at 80th column
+" set colorcolumn=80
+
 set encoding=utf-8
 set scrolloff=6
 set autoindent
@@ -103,9 +119,13 @@ nnoremap <leader>r :RainbowParenthesesToggle<CR>
 nnoremap <leader>g :GundoToggle<CR>
 nnoremap <leader>y :YRShow<CR>
 nnoremap <leader>ft Vatzf
+
+" what the heck does this do...
 nnoremap <leader>S ?{<CR>jV/^\s*\}?$<CR>k:sort<CR>:noh<CR>
 nnoremap <leader>v V']
 nnoremap <leader>w <C-w>v<C-w>1
+
+" nav thru windows
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k

@@ -21,6 +21,7 @@
     ra = !git r --all
     head = !git l -1
     h = !git head
+    p4 = !git-p4
 
 [format]
     pretty = format:%C(yellow)%h%Creset -%C(red)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset
